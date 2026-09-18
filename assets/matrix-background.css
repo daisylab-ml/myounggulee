@@ -1,0 +1,97 @@
+:root {
+  --code-indigo: rgba(165, 180, 252, 0.72);
+  --code-slate: rgba(100, 116, 139, 0.52);
+  --code-binary: rgba(129, 140, 248, 0.44);
+  --code-cursor: rgba(129, 140, 248, 0.95);
+  --code-layer-opacity: 0.9;
+  --code-safe-zone-start: 34%;
+  --code-safe-zone-end: 66%;
+  --primary-accessible: #5559d6;
+  --primary-accessible-hover: #4c50c6;
+  --footer-muted: #7c8ba1;
+}
+
+.matrix-hero {
+  isolation: isolate;
+}
+
+a.bg-primary-500 {
+  background-color: var(--primary-accessible);
+}
+
+a.bg-primary-500:hover {
+  background-color: var(--primary-accessible-hover);
+}
+
+footer p.text-slate-500 {
+  color: var(--footer-muted);
+}
+
+.matrix-code-background {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--code-layer-opacity);
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.92) 22%,
+    rgba(0, 0, 0, 0.36) 28%,
+    transparent var(--code-safe-zone-start),
+    transparent var(--code-safe-zone-end),
+    rgba(0, 0, 0, 0.36) 72%,
+    rgba(0, 0, 0, 0.92) 78%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.92) 22%,
+    rgba(0, 0, 0, 0.36) 28%,
+    transparent var(--code-safe-zone-start),
+    transparent var(--code-safe-zone-end),
+    rgba(0, 0, 0, 0.36) 72%,
+    rgba(0, 0, 0, 0.92) 78%,
+    #000 100%
+  );
+}
+
+@media (max-width: 900px) {
+  .matrix-code-background {
+    --code-layer-opacity: 0.76;
+    --code-safe-zone-start: 18%;
+    --code-safe-zone-end: 82%;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      #000 0%,
+      rgba(0, 0, 0, 0.8) 10%,
+      rgba(0, 0, 0, 0.32) 14%,
+      transparent var(--code-safe-zone-start),
+      transparent var(--code-safe-zone-end),
+      rgba(0, 0, 0, 0.32) 86%,
+      rgba(0, 0, 0, 0.8) 90%,
+      #000 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      #000 0%,
+      rgba(0, 0, 0, 0.8) 10%,
+      rgba(0, 0, 0, 0.32) 14%,
+      transparent var(--code-safe-zone-start),
+      transparent var(--code-safe-zone-end),
+      rgba(0, 0, 0, 0.32) 86%,
+      rgba(0, 0, 0, 0.8) 90%,
+      #000 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-code-background {
+    opacity: 0.5;
+  }
+}
